@@ -25,13 +25,13 @@ const OrderButtons: React.FC<Props> = () => {
         data-active={currentOrder === "desc"}
         onClick={() => handleClickOrderBy("desc")}
       >
-        Desc
+        최신순
       </a>
       <a
         data-active={currentOrder === "asc"}
         onClick={() => handleClickOrderBy("asc")}
       >
-        Asc
+        과거순
       </a>
     </StyledWrapper>
   )
