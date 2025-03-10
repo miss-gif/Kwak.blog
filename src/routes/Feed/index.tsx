@@ -1,16 +1,12 @@
 import { useState } from "react"
 
-import SearchInput from "./SearchInput"
+import styled from "@emotion/styled"
 import { FeedHeader } from "./FeedHeader"
 import Footer from "./Footer"
-import styled from "@emotion/styled"
-import TagList from "./TagList"
-import MobileProfileCard from "./MobileProfileCard"
-import ProfileCard from "./ProfileCard"
-import ServiceCard from "./ServiceCard"
-import ContactCard from "./ContactCard"
 import PostList from "./PostList"
 import PinnedPosts from "./PostList/PinnedPosts"
+import SearchInput from "./SearchInput"
+import TagList from "./TagList"
 
 const HEADER_HEIGHT = 73
 
@@ -30,7 +26,6 @@ const Feed: React.FC<Props> = () => {
         <TagList />
       </div>
       <div className="mid">
-        <MobileProfileCard />
         <PinnedPosts q={q} />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         <div className="tags">
