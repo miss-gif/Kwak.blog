@@ -42,19 +42,6 @@ const Feed: React.FC<Props> = () => {
           <Footer />
         </div>
       </div>
-      <div
-        className="rt"
-        css={{
-          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-        }}
-      >
-        <ProfileCard />
-        <ServiceCard />
-        <ContactCard />
-        <div className="footer">
-          <Footer />
-        </div>
-      </div>
     </StyledWrapper>
   )
 }
@@ -95,7 +82,7 @@ const StyledWrapper = styled.div`
     grid-column: span 12 / span 12;
 
     @media (min-width: 1024px) {
-      grid-column: span 7 / span 7;
+      grid-column: span 10 / span 10;
     }
 
     > .tags {
@@ -108,31 +95,6 @@ const StyledWrapper = styled.div`
 
     > .footer {
       padding-bottom: 2rem;
-      @media (min-width: 1024px) {
-        display: none;
-      }
-    }
-  }
-
-  > .rt {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    display: none;
-    overflow: scroll;
-    position: sticky;
-    top: ${HEADER_HEIGHT - 10}px;
-
-    @media (min-width: 1024px) {
-      display: block;
-      grid-column: span 3 / span 3;
-    }
-
-    .footer {
-      padding-top: 1rem;
     }
   }
 `
