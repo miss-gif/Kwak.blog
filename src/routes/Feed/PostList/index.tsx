@@ -48,13 +48,15 @@ const PostList: React.FC<Props> = ({ q }) => {
 
       return newFilteredPosts
     })
-  }, [q, currentTag, currentCategory, currentOrder, setFilteredPosts])
+  }, [q, currentTag, currentCategory, currentOrder, data, setFilteredPosts])
 
   return (
     <>
       <div className="my-2">
         {!filteredPosts.length && (
-          <p className="text-gray-500 dark:text-gray-300">Nothing! 😺</p>
+          <p className="text-gray-500 dark:text-gray-300">
+            검색결과를 찾을 수 없습니다. 🤔
+          </p>
         )}
         {filteredPosts.map((post) => (
           <PostCard key={post.id} data={post} />
