@@ -34,7 +34,8 @@ const PostHeader: React.FC<Props> = ({ data }) => {
             )}
             <div className="date">
               {formatDate(
-                data?.date?.start_date || data.createdTime,
+                // data?.date?.start_date || data.createdTime,
+                data.createdTime || data?.date?.start_date,
                 CONFIG.lang
               )}
             </div>
