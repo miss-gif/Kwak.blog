@@ -22,7 +22,7 @@ export function filterPosts(
   const filteredPosts = posts
     // filter data
     .filter((post) => {
-      const postDate = new Date(post?.date?.start_date || post.createdTime)
+      const postDate = new Date( post.createdTime)
       if (!post.title || !post.slug || postDate > tomorrow) return false
       return true
     })

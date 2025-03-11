@@ -61,7 +61,7 @@ const DetailPage: NextPageWithLayout = () => {
     CONFIG.ogImageGenerateURL ??
     `${CONFIG.ogImageGenerateURL}/${encodeURIComponent(post.title)}.png`
 
-  const date = post.date?.start_date || post.createdTime || ""
+  const date = post.createdTime || ""
 
   const meta = {
     title: post.title,

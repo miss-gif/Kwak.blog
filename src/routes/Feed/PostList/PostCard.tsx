@@ -42,11 +42,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
           </header>
           <div className="date">
             <div className="content">
-              {formatDate(
-                // data?.date?.start_date || data.createdTime,
-                data.createdTime || data?.date?.start_date,
-                CONFIG.lang
-              )}
+              {formatDate(data.createdTime, CONFIG.lang)}
             </div>
           </div>
           <div className="summary">
