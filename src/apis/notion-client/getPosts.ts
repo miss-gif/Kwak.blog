@@ -38,10 +38,10 @@ export const getPosts = async () => {
       const properties = (await getPageProperties(id, block, schema)) || null
       // properties에 fullwidth, createdtime 추가
       properties.createdTime = new Date(
-        block[id].value?.created_time // created_time은 페이지 생성시간
+        block[id]?.value?.created_time // created_time은 페이지 생성시간
       ).toString()
       properties.fullWidth =
-        (block[id].value?.format as any)?.page_full_width ?? false
+        (block[id]?.value?.format as any)?.page_full_width ?? false // page_full_width는 페이지 전체 너비 여부
 
       data.push(properties)
     }
