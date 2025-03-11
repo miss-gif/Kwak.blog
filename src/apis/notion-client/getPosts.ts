@@ -32,16 +32,21 @@ export const getPosts = async () => {
   } else {
     // 데이터 구성
     const pageIds = getAllPageIds(response)
+    const tempBlock = (await api.getBlocks(pageIds)).recordMap.block
+
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
-      const properties = (await getPageProperties(id, block, schema)) || null
-      // properties에 fullwidth, createdtime 추가
+      const properties =
+        (await getPageProperties(id, tempBlock, schema)) || null
+      if (!tempBlock[id]) continue
+
+      // Add fullwidth, createdtime to properties
       properties.createdTime = new Date(
-        block[id]?.value?.created_time // created_time은 페이지 생성시간
+        tempBlock[id].value?.created_time
       ).toString()
       properties.fullWidth =
-        (block[id]?.value?.format as any)?.page_full_width ?? false // page_full_width는 페이지 전체 너비 여부
+        (tempBlock[id].value?.format as any)?.page_full_width ?? false
 
       data.push(properties)
     }
