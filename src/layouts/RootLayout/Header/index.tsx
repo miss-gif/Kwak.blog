@@ -38,7 +38,7 @@ const StyledWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1120px;
+    max-width: 1440px;
     height: 3rem;
     margin: 0 auto;
     &[data-full-width="true"] {

@@ -23,22 +23,22 @@ export const getPosts = async () => {
 
   const rawMetadata = block[id].value
 
-  // Check Type
+  // 타입 확인
   if (
     rawMetadata?.type !== "collection_view_page" &&
     rawMetadata?.type !== "collection_view"
   ) {
     return []
   } else {
-    // Construct Data
+    // 데이터 구성
     const pageIds = getAllPageIds(response)
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
       const properties = (await getPageProperties(id, block, schema)) || null
-      // Add fullwidth, createdtime to properties
+      // properties에 fullwidth, createdtime 추가
       properties.createdTime = new Date(
-        block[id].value?.created_time
+        block[id].value?.created_time // created_time은 페이지 생성시간
       ).toString()
       properties.fullWidth =
         (block[id].value?.format as any)?.page_full_width ?? false
@@ -46,7 +46,7 @@ export const getPosts = async () => {
       data.push(properties)
     }
 
-    // Sort by date
+    // 날짜로 정렬
     data.sort((a: any, b: any) => {
       const dateA: any = new Date(a?.date?.start_date || a.createdTime)
       const dateB: any = new Date(b?.date?.start_date || b.createdTime)
