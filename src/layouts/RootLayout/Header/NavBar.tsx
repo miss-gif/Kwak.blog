@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
           </li>
         ))}
       </ul> */}
-      <a href="https://kwak-dev.vercel.app/" target="_blank">
+      <a href="https://kwak-dev.vercel.app/" target="_blank" className="link">
         Kwak.dev
       </a>
     </StyledWrapper>
@@ -29,6 +29,19 @@ const StyledWrapper = styled.div`
       display: block;
       margin-left: 1rem;
       color: ${({ theme }) => theme.colors.gray11};
+    }
+  }
+  .link {
+    color: ${({ theme }) => theme.colors.gray11};
+    text-decoration: none;
+    &:hover {
+      color: ${({ theme }) => theme.colors.gray12};
+    }
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: ${({ theme }) => theme.colors.gray3};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray4};
     }
   }
 `
